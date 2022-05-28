@@ -50,7 +50,7 @@
             // FoodListBox
             // 
             this.FoodListBox.FormattingEnabled = true;
-            this.FoodListBox.Location = new System.Drawing.Point(325, 72);
+            this.FoodListBox.Location = new System.Drawing.Point(224, 31);
             this.FoodListBox.Name = "FoodListBox";
             this.FoodListBox.Size = new System.Drawing.Size(237, 28);
             this.FoodListBox.TabIndex = 0;
@@ -58,14 +58,14 @@
             // DrinksLisBox
             // 
             this.DrinksLisBox.FormattingEnabled = true;
-            this.DrinksLisBox.Location = new System.Drawing.Point(325, 123);
+            this.DrinksLisBox.Location = new System.Drawing.Point(224, 100);
             this.DrinksLisBox.Name = "DrinksLisBox";
             this.DrinksLisBox.Size = new System.Drawing.Size(237, 28);
             this.DrinksLisBox.TabIndex = 1;
             // 
             // PayButton
             // 
-            this.PayButton.Location = new System.Drawing.Point(1035, 400);
+            this.PayButton.Location = new System.Drawing.Point(978, 377);
             this.PayButton.Name = "PayButton";
             this.PayButton.Size = new System.Drawing.Size(94, 29);
             this.PayButton.TabIndex = 2;
@@ -75,7 +75,7 @@
             // 
             // AddOrderButton
             // 
-            this.AddOrderButton.Location = new System.Drawing.Point(468, 157);
+            this.AddOrderButton.Location = new System.Drawing.Point(367, 156);
             this.AddOrderButton.Name = "AddOrderButton";
             this.AddOrderButton.Size = new System.Drawing.Size(94, 29);
             this.AddOrderButton.TabIndex = 3;
@@ -86,7 +86,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(276, 80);
+            this.label1.Location = new System.Drawing.Point(224, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 20);
             this.label1.TabIndex = 4;
@@ -95,7 +95,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(269, 131);
+            this.label2.Location = new System.Drawing.Point(224, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(50, 20);
             this.label2.TabIndex = 5;
@@ -103,7 +103,7 @@
             // 
             // OrderTextBox
             // 
-            this.OrderTextBox.Location = new System.Drawing.Point(583, 72);
+            this.OrderTextBox.Location = new System.Drawing.Point(637, 72);
             this.OrderTextBox.Multiline = true;
             this.OrderTextBox.Name = "OrderTextBox";
             this.OrderTextBox.ReadOnly = true;
@@ -112,7 +112,7 @@
             // 
             // PriceTextBox
             // 
-            this.PriceTextBox.Location = new System.Drawing.Point(833, 72);
+            this.PriceTextBox.Location = new System.Drawing.Point(916, 72);
             this.PriceTextBox.Multiline = true;
             this.PriceTextBox.Name = "PriceTextBox";
             this.PriceTextBox.ReadOnly = true;
@@ -122,7 +122,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(583, 40);
+            this.label3.Location = new System.Drawing.Point(637, 49);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 20);
             this.label3.TabIndex = 8;
@@ -131,7 +131,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(833, 40);
+            this.label4.Location = new System.Drawing.Point(916, 49);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 20);
             this.label4.TabIndex = 9;
@@ -139,7 +139,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(646, 205);
+            this.button1.Location = new System.Drawing.Point(637, 191);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(181, 29);
             this.button1.TabIndex = 10;
@@ -148,7 +148,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(895, 191);
+            this.button2.Location = new System.Drawing.Point(916, 191);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 29);
             this.button2.TabIndex = 11;
@@ -157,20 +157,21 @@
             // 
             // Table1Button
             // 
+            this.Table1Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table1Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table1Button.Image = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table1Button.Location = new System.Drawing.Point(30, 31);
             this.Table1Button.Name = "Table1Button";
-            this.Table1Button.Size = new System.Drawing.Size(139, 98);
+            this.Table1Button.Size = new System.Drawing.Size(132, 98);
             this.Table1Button.TabIndex = 12;
             this.Table1Button.Text = "1";
             this.Table1Button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Table1Button.UseVisualStyleBackColor = true;
+            this.Table1Button.Click += new System.EventHandler(this.Table1Button_Click);
             // 
             // Table2Button
             // 
+            this.Table2Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table2Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table2Button.Image = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table2Button.Location = new System.Drawing.Point(30, 157);
             this.Table2Button.Name = "Table2Button";
             this.Table2Button.Size = new System.Drawing.Size(139, 98);
@@ -181,8 +182,8 @@
             // 
             // Table3Button
             // 
+            this.Table3Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table3Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table3Button.Image = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table3Button.Location = new System.Drawing.Point(30, 288);
             this.Table3Button.Name = "Table3Button";
             this.Table3Button.Size = new System.Drawing.Size(139, 98);
@@ -193,8 +194,8 @@
             // 
             // Table4Button
             // 
+            this.Table4Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table4Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table4Button.Image = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table4Button.Location = new System.Drawing.Point(207, 205);
             this.Table4Button.Name = "Table4Button";
             this.Table4Button.Size = new System.Drawing.Size(139, 98);
@@ -205,8 +206,8 @@
             // 
             // Table5Button
             // 
+            this.Table5Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table5Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table5Button.Image = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table5Button.Location = new System.Drawing.Point(207, 331);
             this.Table5Button.Name = "Table5Button";
             this.Table5Button.Size = new System.Drawing.Size(139, 98);
@@ -219,7 +220,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1141, 450);
+            this.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.background_image;
+            this.ClientSize = new System.Drawing.Size(1233, 437);
             this.Controls.Add(this.Table5Button);
             this.Controls.Add(this.Table4Button);
             this.Controls.Add(this.Table3Button);

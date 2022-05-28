@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,11 +59,19 @@ namespace RestaurantSystemApp
             DrinksLisBox.Text = ("");
 
         }
+        public void OnBackgroundImageChanged(Button TableNumberButton)
+        {
+            Image BackgroundImage = new Bitmap(@"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Images\x.png");
+            TableNumberButton.BackgroundImage = BackgroundImage;
+        }
+        private void Table1Button_Click(object sender, EventArgs e)
+        {
+            OnBackgroundImageChanged(Table1Button);
+        }
         private void PayButton_Click(object sender, EventArgs e)
         {
-
+            //var BuilForRestaurant = File.CreateText(@"c:\Program Files\buil.txt");
+            // Table1ButtonWasClicked = false;
         }
-
-        
     }
 }

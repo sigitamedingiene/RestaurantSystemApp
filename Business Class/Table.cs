@@ -1,6 +1,4 @@
-﻿
-
-namespace Business_Class
+﻿namespace Business_Class
 {
     public class Table    {
         public int Number { get; }
