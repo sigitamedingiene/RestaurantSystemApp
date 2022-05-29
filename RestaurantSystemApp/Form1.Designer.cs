@@ -179,6 +179,7 @@
             this.Table2Button.Text = "2";
             this.Table2Button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Table2Button.UseVisualStyleBackColor = true;
+            this.Table2Button.Click += new System.EventHandler(this.Table2Button_Click);
             // 
             // Table3Button
             // 

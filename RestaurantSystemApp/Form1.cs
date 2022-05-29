@@ -15,15 +15,28 @@ namespace RestaurantSystemApp
 {
     public partial class Form1 : Form
     {
+        FoodRepository foodRepository = new FoodRepository();
+        DrinksRepository drinksRepository = new DrinksRepository();
+        TablesRepository tablesRepository = new TablesRepository();
         public Form1()
-        {
+        {   
             InitializeComponent();
+            ShowOccupiedTables();
             AddSnackList();
             AddDrinkList();
         }
+        private void ShowOccupiedTables()
+        {   List<Table> tableList = tablesRepository.Retrieve();
+            for (int i = 0; i < tableList.Count; i++)
+            {
+                if (tableList[i].IsOcupied)
+                {
+                    MessageBox.Show($"At this moment ocupied table is Nr. {tableList[i].Number}.");
+                }
+            }
+        }
         public void AddSnackList()
         {
-            FoodRepository foodRepository = new FoodRepository();
             List<Food> snackList = foodRepository.Retrieve();
             for (int i = 0; i < snackList.Count; i++)
             {
@@ -32,7 +45,6 @@ namespace RestaurantSystemApp
         }
         public void AddDrinkList()
         {
-            DrinksRepository drinksRepository = new DrinksRepository();
             List<Food> drinkList = drinksRepository.Retrieve();
             for (int i = 0; i < drinkList.Count; i++)
             {
@@ -66,12 +78,36 @@ namespace RestaurantSystemApp
         }
         private void Table1Button_Click(object sender, EventArgs e)
         {
-            OnBackgroundImageChanged(Table1Button);
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (tableList[1].IsOcupied == false)
+            {
+                OnBackgroundImageChanged(Table1Button);
+                tableList[1].IsOcupied = true;
+            }
+            else
+            {
+                MessageBox.Show("Table Nr.1 is ocupied, please select other table.");
+            }            
+        }
+        private void Table2Button_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (tableList[2].IsOcupied == false)
+            {
+                OnBackgroundImageChanged(Table1Button);
+                tableList[2].IsOcupied = true;
+            }
+            else
+            {
+                MessageBox.Show("Table Nr.2 is ocupied, please select other table.");
+            }
         }
         private void PayButton_Click(object sender, EventArgs e)
         {
             //var BuilForRestaurant = File.CreateText(@"c:\Program Files\buil.txt");
             // Table1ButtonWasClicked = false;
         }
+
+        
     }
 }

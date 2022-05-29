@@ -8,11 +8,11 @@ namespace Repository
         public TablesRepository()
         {
             TableList = new List<Table>();
-            TableList.Add(new Table(1, 8));
-            TableList.Add(new Table(2, 5));
-            TableList.Add(new Table(3, 4));
-            TableList.Add(new Table(4, 3));
-            TableList.Add(new Table(5, 12));
+            TableList.Add(new Table(1, 8, false));
+            TableList.Add(new Table(2, 5, true));
+            TableList.Add(new Table(3, 4, true));
+            TableList.Add(new Table(4, 3, false));
+            TableList.Add(new Table(5, 12, false));
         }
         public List<Table> Retrieve()
         {
