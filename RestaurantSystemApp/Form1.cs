@@ -213,7 +213,7 @@ namespace RestaurantSystemApp
         }
         private void SentToKichenButton_Click(object sender, EventArgs e)
         {
-            var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\KichenOrders\KichenOrder.txt";
+            var path = @"C:\..\..\..\..\..\..\..\..\KichenOrder.txt";
             var order = OrderTextBox.Text;
             FullOrderTextBox.AppendText(order);
             File.WriteAllText(path, order);
@@ -222,7 +222,7 @@ namespace RestaurantSystemApp
         }
         private void SentToBarButton_Click(object sender, EventArgs e)
         {
-            var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\BarOrders\BarOrder.txt";
+            var path = @"C:\..\..\..\..\..\..\..\..\BarOrder.txt";
             var order = OrderToBarTextBox.Text;
             FullOrderTextBox.AppendText(order);
             File.WriteAllText(path, order);
@@ -231,7 +231,7 @@ namespace RestaurantSystemApp
         }
         private void PayButton_Click(object sender, EventArgs e)
         {
-            var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\reciept.txt";
+            var path = @"C:\..\..\..\..\..\..\..\reciept.txt";
             var order = FullOrderTextBox.Text;
             File.WriteAllText(path, order);
             MessageBox.Show("Payment reciept sent successfully");
