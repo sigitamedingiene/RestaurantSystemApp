@@ -30,7 +30,7 @@ namespace RestaurantSystemApp
             for (int i = 0; i < tableList.Count; i++)
             {
                 if (tableList[i].IsOcupied)
-                {
+                {   
                     MessageBox.Show($"At this moment ocupied table is Nr. {tableList[i].Number}.");
                 }
             }
@@ -56,13 +56,13 @@ namespace RestaurantSystemApp
             if (FoodListBox.Text.Length > 0 & DrinksLisBox.Text.Length > 0)
             {
                 OrderTextBox.AppendText($"{FoodListBox.Text}\r\n");
-                PriceTextBox.AppendText($"{DrinksLisBox.Text}\r\n");
+                OrderToBarTextBox.AppendText($"{DrinksLisBox.Text}\r\n");
             }else if(FoodListBox.Text.Length > 0)
             {
                 OrderTextBox.AppendText($"{FoodListBox.Text}\r\n");
             }else if(DrinksLisBox.Text.Length > 0)
             {
-                PriceTextBox.AppendText($"{DrinksLisBox.Text}\r\n");
+                OrderToBarTextBox.AppendText($"{DrinksLisBox.Text}\r\n");
             }else
             {
                 MessageBox.Show("Please choose product from Food or Drinks List.");
@@ -71,43 +71,148 @@ namespace RestaurantSystemApp
             DrinksLisBox.Text = ("");
 
         }
-        public void OnBackgroundImageChanged(Button TableNumberButton)
-        {
-            Image BackgroundImage = new Bitmap(@"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Images\x.png");
-            TableNumberButton.BackgroundImage = BackgroundImage;
-        }
         private void Table1Button_Click(object sender, EventArgs e)
         {
-            List<Table> tableList = tablesRepository.Retrieve();
-            if (tableList[1].IsOcupied == false)
+           List<Table> tableList = tablesRepository.Retrieve();
+            if (tableList[0].IsOcupied == false)
             {
-                OnBackgroundImageChanged(Table1Button);
-                tableList[1].IsOcupied = true;
+                Table1Button.Enabled = false;
+                tableList[0].IsOcupied = true;                
+            }else
+            {
+                MessageBox.Show("Table is ocupied, please select other table.");
             }
-            else
+        }
+        private void Button1TableIsFreeButton_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (Table1Button.Enabled == false)
             {
-                MessageBox.Show("Table Nr.1 is ocupied, please select other table.");
-            }            
+                tableList[0].IsOcupied = false;
+                Table1Button.Enabled = true;
+            }else
+            {
+                MessageBox.Show("Table is free. Please click on the Table image.");
+            }        
         }
         private void Table2Button_Click(object sender, EventArgs e)
         {
             List<Table> tableList = tablesRepository.Retrieve();
-            if (tableList[2].IsOcupied == false)
+            if (tableList[1].IsOcupied == false)
             {
-                OnBackgroundImageChanged(Table1Button);
-                tableList[2].IsOcupied = true;
+                Table2Button.Enabled = false;
+                tableList[1].IsOcupied = true;
             }
             else
             {
-                MessageBox.Show("Table Nr.2 is ocupied, please select other table.");
+                MessageBox.Show("Table is ocupied, please select other table.");
             }
+        }
+        private void Button2TableIsFreeButton_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (Table2Button.Enabled == false)
+            {
+                tableList[1].IsOcupied = false;
+                Table2Button.Enabled = true;
+            }else
+            {
+                MessageBox.Show("Table is free. Please click on the Table image.");
+            }
+        }
+        private void Table3Button_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (tableList[2].IsOcupied == false)
+            {
+                Table3Button.Enabled = false;
+                tableList[2].IsOcupied = true;
+            }else
+            {
+                MessageBox.Show("Table is ocupied, please select other table.");
+            }
+        }
+        private void Button3TableIsFreeButton_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (Table3Button.Enabled == false)
+            {
+                tableList[2].IsOcupied = false;
+                Table3Button.Enabled = true;
+            }else
+            {
+                MessageBox.Show("Table is free. Please click on the Table image.");
+            }
+        }
+        private void Table4Button_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (tableList[3].IsOcupied == false)
+            {
+                Table4Button.Enabled = false;
+                tableList[3].IsOcupied = true;
+            }else
+            {
+                MessageBox.Show("Table is ocupied, please select other table.");
+            }
+        }
+        private void Button4TableIsFreeButton_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (Table4Button.Enabled == false)
+            {
+                tableList[3].IsOcupied = false;
+                Table4Button.Enabled = true;
+            }else
+            {
+                MessageBox.Show("Table is free. Please click on the Table image.");
+            }
+        }
+        private void Table5Button_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (tableList[4].IsOcupied == false)
+            {
+                Table5Button.Enabled = false;
+                tableList[4].IsOcupied = true;
+            }
+            else
+            {
+                MessageBox.Show("Table is ocupied, please select other table.");
+            }
+        }
+        private void Button5TableIsFreeButton_Click(object sender, EventArgs e)
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
+            if (Table5Button.Enabled == false)
+            {
+                tableList[4].IsOcupied = false;
+                Table5Button.Enabled = true;
+            }else
+            {
+                MessageBox.Show("Table is free. Please click on the Table image.");
+            }
+        }
+        private void SentToKichenButton_Click(object sender, EventArgs e)
+        {
+            var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\KichenOrders\KichenOrder.txt";
+            var order = OrderTextBox.Text;
+            File.WriteAllText(path, order);
+            MessageBox.Show("Order sent successfully");
+            OrderTextBox.Clear();
+        }
+        private void SentToBarButton_Click(object sender, EventArgs e)
+        {
+            var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\BarOrders\BarOrder.txt";
+            var order = OrderToBarTextBox.Text;
+            File.WriteAllText(path, order);
+            MessageBox.Show("Order sent successfully");
+            OrderToBarTextBox.Clear();
         }
         private void PayButton_Click(object sender, EventArgs e)
         {
             //var BuilForRestaurant = File.CreateText(@"c:\Program Files\buil.txt");
             // Table1ButtonWasClicked = false;
-        }
-
-        
+        }        
     }
 }

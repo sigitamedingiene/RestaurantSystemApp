@@ -35,16 +35,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.OrderTextBox = new System.Windows.Forms.TextBox();
-            this.PriceTextBox = new System.Windows.Forms.TextBox();
+            this.OrderToBarTextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.SentToKichenButton = new System.Windows.Forms.Button();
+            this.SentToBarButton = new System.Windows.Forms.Button();
             this.Table1Button = new System.Windows.Forms.Button();
             this.Table2Button = new System.Windows.Forms.Button();
             this.Table3Button = new System.Windows.Forms.Button();
             this.Table4Button = new System.Windows.Forms.Button();
             this.Table5Button = new System.Windows.Forms.Button();
+            this.Button1TableIsFreeButton = new System.Windows.Forms.Button();
+            this.Button2TableIsFreeButton = new System.Windows.Forms.Button();
+            this.Button3TableIsFreeButton = new System.Windows.Forms.Button();
+            this.Button4TableIsFreeButton = new System.Windows.Forms.Button();
+            this.Button5TableIsFreeButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FoodListBox
@@ -110,14 +115,14 @@
             this.OrderTextBox.Size = new System.Drawing.Size(244, 113);
             this.OrderTextBox.TabIndex = 6;
             // 
-            // PriceTextBox
+            // OrderToBarTextBox
             // 
-            this.PriceTextBox.Location = new System.Drawing.Point(916, 72);
-            this.PriceTextBox.Multiline = true;
-            this.PriceTextBox.Name = "PriceTextBox";
-            this.PriceTextBox.ReadOnly = true;
-            this.PriceTextBox.Size = new System.Drawing.Size(156, 113);
-            this.PriceTextBox.TabIndex = 7;
+            this.OrderToBarTextBox.Location = new System.Drawing.Point(916, 72);
+            this.OrderToBarTextBox.Multiline = true;
+            this.OrderToBarTextBox.Name = "OrderToBarTextBox";
+            this.OrderToBarTextBox.ReadOnly = true;
+            this.OrderToBarTextBox.Size = new System.Drawing.Size(156, 113);
+            this.OrderToBarTextBox.TabIndex = 7;
             // 
             // label3
             // 
@@ -137,23 +142,25 @@
             this.label4.TabIndex = 9;
             this.label4.Text = "Drinks";
             // 
-            // button1
+            // SentToKichenButton
             // 
-            this.button1.Location = new System.Drawing.Point(637, 191);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(181, 29);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Send To Kichen";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SentToKichenButton.Location = new System.Drawing.Point(637, 191);
+            this.SentToKichenButton.Name = "SentToKichenButton";
+            this.SentToKichenButton.Size = new System.Drawing.Size(181, 29);
+            this.SentToKichenButton.TabIndex = 10;
+            this.SentToKichenButton.Text = "Send To Kichen";
+            this.SentToKichenButton.UseVisualStyleBackColor = true;
+            this.SentToKichenButton.Click += new System.EventHandler(this.SentToKichenButton_Click);
             // 
-            // button2
+            // SentToBarButton
             // 
-            this.button2.Location = new System.Drawing.Point(916, 191);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Send to Bar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.SentToBarButton.Location = new System.Drawing.Point(916, 191);
+            this.SentToBarButton.Name = "SentToBarButton";
+            this.SentToBarButton.Size = new System.Drawing.Size(94, 29);
+            this.SentToBarButton.TabIndex = 11;
+            this.SentToBarButton.Text = "Send to Bar";
+            this.SentToBarButton.UseVisualStyleBackColor = true;
+            this.SentToBarButton.Click += new System.EventHandler(this.SentToBarButton_Click);
             // 
             // Table1Button
             // 
@@ -161,7 +168,7 @@
             this.Table1Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Table1Button.Location = new System.Drawing.Point(30, 31);
             this.Table1Button.Name = "Table1Button";
-            this.Table1Button.Size = new System.Drawing.Size(132, 98);
+            this.Table1Button.Size = new System.Drawing.Size(139, 98);
             this.Table1Button.TabIndex = 12;
             this.Table1Button.Text = "1";
             this.Table1Button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -172,7 +179,7 @@
             // 
             this.Table2Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table2Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table2Button.Location = new System.Drawing.Point(30, 157);
+            this.Table2Button.Location = new System.Drawing.Point(30, 175);
             this.Table2Button.Name = "Table2Button";
             this.Table2Button.Size = new System.Drawing.Size(139, 98);
             this.Table2Button.TabIndex = 13;
@@ -185,13 +192,14 @@
             // 
             this.Table3Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table3Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table3Button.Location = new System.Drawing.Point(30, 288);
+            this.Table3Button.Location = new System.Drawing.Point(30, 314);
             this.Table3Button.Name = "Table3Button";
             this.Table3Button.Size = new System.Drawing.Size(139, 98);
             this.Table3Button.TabIndex = 14;
             this.Table3Button.Text = "3";
             this.Table3Button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Table3Button.UseVisualStyleBackColor = true;
+            this.Table3Button.Click += new System.EventHandler(this.Table3Button_Click);
             // 
             // Table4Button
             // 
@@ -204,35 +212,98 @@
             this.Table4Button.Text = "4";
             this.Table4Button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Table4Button.UseVisualStyleBackColor = true;
+            this.Table4Button.Click += new System.EventHandler(this.Table4Button_Click);
             // 
             // Table5Button
             // 
             this.Table5Button.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.Table;
             this.Table5Button.Font = new System.Drawing.Font("Showcard Gothic", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Table5Button.Location = new System.Drawing.Point(207, 331);
+            this.Table5Button.Location = new System.Drawing.Point(207, 340);
             this.Table5Button.Name = "Table5Button";
             this.Table5Button.Size = new System.Drawing.Size(139, 98);
             this.Table5Button.TabIndex = 16;
             this.Table5Button.Text = "5";
             this.Table5Button.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.Table5Button.UseVisualStyleBackColor = true;
+            this.Table5Button.Click += new System.EventHandler(this.Table5Button_Click);
+            // 
+            // Button1TableIsFreeButton
+            // 
+            this.Button1TableIsFreeButton.BackColor = System.Drawing.Color.Goldenrod;
+            this.Button1TableIsFreeButton.Location = new System.Drawing.Point(30, 127);
+            this.Button1TableIsFreeButton.Name = "Button1TableIsFreeButton";
+            this.Button1TableIsFreeButton.Size = new System.Drawing.Size(139, 29);
+            this.Button1TableIsFreeButton.TabIndex = 17;
+            this.Button1TableIsFreeButton.Text = "TABLE IS FREE";
+            this.Button1TableIsFreeButton.UseVisualStyleBackColor = false;
+            this.Button1TableIsFreeButton.Click += new System.EventHandler(this.Button1TableIsFreeButton_Click);
+            // 
+            // Button2TableIsFreeButton
+            // 
+            this.Button2TableIsFreeButton.BackColor = System.Drawing.Color.Goldenrod;
+            this.Button2TableIsFreeButton.Location = new System.Drawing.Point(30, 265);
+            this.Button2TableIsFreeButton.Name = "Button2TableIsFreeButton";
+            this.Button2TableIsFreeButton.Size = new System.Drawing.Size(139, 29);
+            this.Button2TableIsFreeButton.TabIndex = 18;
+            this.Button2TableIsFreeButton.Text = "TABLE IS FREE";
+            this.Button2TableIsFreeButton.UseVisualStyleBackColor = false;
+            this.Button2TableIsFreeButton.Click += new System.EventHandler(this.Button2TableIsFreeButton_Click);
+            // 
+            // Button3TableIsFreeButton
+            // 
+            this.Button3TableIsFreeButton.BackColor = System.Drawing.Color.Goldenrod;
+            this.Button3TableIsFreeButton.Location = new System.Drawing.Point(30, 409);
+            this.Button3TableIsFreeButton.Name = "Button3TableIsFreeButton";
+            this.Button3TableIsFreeButton.Size = new System.Drawing.Size(139, 29);
+            this.Button3TableIsFreeButton.TabIndex = 19;
+            this.Button3TableIsFreeButton.Text = "TABLE IS FREE";
+            this.Button3TableIsFreeButton.UseVisualStyleBackColor = false;
+            this.Button3TableIsFreeButton.Click += new System.EventHandler(this.Button3TableIsFreeButton_Click);
+            // 
+            // Button4TableIsFreeButton
+            // 
+            this.Button4TableIsFreeButton.BackColor = System.Drawing.Color.Goldenrod;
+            this.Button4TableIsFreeButton.Location = new System.Drawing.Point(207, 296);
+            this.Button4TableIsFreeButton.Name = "Button4TableIsFreeButton";
+            this.Button4TableIsFreeButton.Size = new System.Drawing.Size(139, 29);
+            this.Button4TableIsFreeButton.TabIndex = 20;
+            this.Button4TableIsFreeButton.Text = "TABLE IS FREE";
+            this.Button4TableIsFreeButton.UseVisualStyleBackColor = false;
+            this.Button4TableIsFreeButton.Click += new System.EventHandler(this.Button4TableIsFreeButton_Click);
+            // 
+            // Button5TableIsFreeButton
+            // 
+            this.Button5TableIsFreeButton.BackColor = System.Drawing.Color.Goldenrod;
+            this.Button5TableIsFreeButton.Location = new System.Drawing.Point(207, 432);
+            this.Button5TableIsFreeButton.Name = "Button5TableIsFreeButton";
+            this.Button5TableIsFreeButton.Size = new System.Drawing.Size(139, 29);
+            this.Button5TableIsFreeButton.TabIndex = 21;
+            this.Button5TableIsFreeButton.Text = "TABLE IS FREE";
+            this.Button5TableIsFreeButton.UseVisualStyleBackColor = false;
+            this.Button5TableIsFreeButton.Click += new System.EventHandler(this.Button5TableIsFreeButton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.background_image;
-            this.ClientSize = new System.Drawing.Size(1233, 437);
+            this.ClientSize = new System.Drawing.Size(1233, 473);
+            this.Controls.Add(this.Button5TableIsFreeButton);
+            this.Controls.Add(this.Button4TableIsFreeButton);
+            this.Controls.Add(this.Button3TableIsFreeButton);
+            this.Controls.Add(this.Button2TableIsFreeButton);
+            this.Controls.Add(this.Button1TableIsFreeButton);
             this.Controls.Add(this.Table5Button);
             this.Controls.Add(this.Table4Button);
             this.Controls.Add(this.Table3Button);
             this.Controls.Add(this.Table2Button);
             this.Controls.Add(this.Table1Button);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.SentToBarButton);
+            this.Controls.Add(this.SentToKichenButton);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.PriceTextBox);
+            this.Controls.Add(this.OrderToBarTextBox);
             this.Controls.Add(this.OrderTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -256,15 +327,20 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox OrderTextBox;
-        private System.Windows.Forms.TextBox PriceTextBox;
+        private System.Windows.Forms.TextBox OrderToBarTextBox;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button SentToKichenButton;
+        private System.Windows.Forms.Button SentToBarButton;
         private System.Windows.Forms.Button Table1Button;
         private System.Windows.Forms.Button Table2Button;
         private System.Windows.Forms.Button Table3Button;
         private System.Windows.Forms.Button Table4Button;
         private System.Windows.Forms.Button Table5Button;
+        private System.Windows.Forms.Button Button1TableIsFreeButton;
+        private System.Windows.Forms.Button Button2TableIsFreeButton;
+        private System.Windows.Forms.Button Button3TableIsFreeButton;
+        private System.Windows.Forms.Button Button4TableIsFreeButton;
+        private System.Windows.Forms.Button Button5TableIsFreeButton;
     }
 }

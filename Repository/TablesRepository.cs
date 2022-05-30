@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Repository
 {
     public class TablesRepository
-    { private List<Table> TableList { get; set; }
+    { public List<Table> TableList { get; set; }
         public TablesRepository()
         {
             TableList = new List<Table>();
