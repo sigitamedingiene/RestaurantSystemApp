@@ -26,11 +26,12 @@ namespace RestaurantSystemApp
             AddDrinkList();
         }
         private void ShowOccupiedTables()
-        {   List<Table> tableList = tablesRepository.Retrieve();
+        {
+            List<Table> tableList = tablesRepository.Retrieve();
             for (int i = 0; i < tableList.Count; i++)
             {
                 if (tableList[i].IsOcupied)
-                {   
+                {
                     MessageBox.Show($"At this moment ocupied table is Nr. {tableList[i].Number}.");
                 }
             }
@@ -77,7 +78,8 @@ namespace RestaurantSystemApp
             if (tableList[0].IsOcupied == false)
             {
                 Table1Button.Enabled = false;
-                tableList[0].IsOcupied = true;                
+                tableList[0].IsOcupied = true;
+                FullOrderTextBox.AppendText($"Stalo nr.{tableList[0].Number.ToString()}\r\n");
             }else
             {
                 MessageBox.Show("Table is ocupied, please select other table.");
@@ -90,7 +92,9 @@ namespace RestaurantSystemApp
             {
                 tableList[0].IsOcupied = false;
                 Table1Button.Enabled = true;
-            }else
+                FullOrderTextBox.Clear();
+            }
+            else
             {
                 MessageBox.Show("Table is free. Please click on the Table image.");
             }        
@@ -102,6 +106,7 @@ namespace RestaurantSystemApp
             {
                 Table2Button.Enabled = false;
                 tableList[1].IsOcupied = true;
+                FullOrderTextBox.AppendText($"Stalo nr.{tableList[1].Number.ToString()}\r\n");
             }
             else
             {
@@ -115,7 +120,9 @@ namespace RestaurantSystemApp
             {
                 tableList[1].IsOcupied = false;
                 Table2Button.Enabled = true;
-            }else
+                FullOrderTextBox.Clear();
+            }
+            else
             {
                 MessageBox.Show("Table is free. Please click on the Table image.");
             }
@@ -127,7 +134,9 @@ namespace RestaurantSystemApp
             {
                 Table3Button.Enabled = false;
                 tableList[2].IsOcupied = true;
-            }else
+                FullOrderTextBox.AppendText($"Stalo nr.{tableList[2].Number.ToString()}\r\n");
+            }
+            else
             {
                 MessageBox.Show("Table is ocupied, please select other table.");
             }
@@ -139,7 +148,9 @@ namespace RestaurantSystemApp
             {
                 tableList[2].IsOcupied = false;
                 Table3Button.Enabled = true;
-            }else
+                FullOrderTextBox.Clear();
+            }
+            else
             {
                 MessageBox.Show("Table is free. Please click on the Table image.");
             }
@@ -151,7 +162,9 @@ namespace RestaurantSystemApp
             {
                 Table4Button.Enabled = false;
                 tableList[3].IsOcupied = true;
-            }else
+                FullOrderTextBox.AppendText($"Stalo nr.{tableList[3].Number.ToString()}\r\n");
+            }
+            else
             {
                 MessageBox.Show("Table is ocupied, please select other table.");
             }
@@ -163,7 +176,9 @@ namespace RestaurantSystemApp
             {
                 tableList[3].IsOcupied = false;
                 Table4Button.Enabled = true;
-            }else
+                FullOrderTextBox.Clear();
+            }
+            else
             {
                 MessageBox.Show("Table is free. Please click on the Table image.");
             }
@@ -175,6 +190,7 @@ namespace RestaurantSystemApp
             {
                 Table5Button.Enabled = false;
                 tableList[4].IsOcupied = true;
+                FullOrderTextBox.AppendText($"Stalo nr.{tableList[4].Number.ToString()}\r\n");
             }
             else
             {
@@ -188,7 +204,9 @@ namespace RestaurantSystemApp
             {
                 tableList[4].IsOcupied = false;
                 Table5Button.Enabled = true;
-            }else
+                FullOrderTextBox.Clear();
+            }
+            else
             {
                 MessageBox.Show("Table is free. Please click on the Table image.");
             }
@@ -197,6 +215,7 @@ namespace RestaurantSystemApp
         {
             var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\KichenOrders\KichenOrder.txt";
             var order = OrderTextBox.Text;
+            FullOrderTextBox.AppendText(order);
             File.WriteAllText(path, order);
             MessageBox.Show("Order sent successfully");
             OrderTextBox.Clear();
@@ -205,14 +224,17 @@ namespace RestaurantSystemApp
         {
             var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\BarOrders\BarOrder.txt";
             var order = OrderToBarTextBox.Text;
+            FullOrderTextBox.AppendText(order);
             File.WriteAllText(path, order);
             MessageBox.Show("Order sent successfully");
             OrderToBarTextBox.Clear();
         }
         private void PayButton_Click(object sender, EventArgs e)
         {
-            //var BuilForRestaurant = File.CreateText(@"c:\Program Files\buil.txt");
-            // Table1ButtonWasClicked = false;
+            var path = @"C:\Users\Vartotojas\source\repos\Advanced\RestaurantSystemApp\Receipt\reciept.txt";
+            var order = FullOrderTextBox.Text;
+            File.WriteAllText(path, order);
+            MessageBox.Show("Payment reciept sent successfully");
         }        
     }
 }

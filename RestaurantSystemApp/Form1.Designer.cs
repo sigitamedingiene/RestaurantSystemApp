@@ -50,6 +50,8 @@
             this.Button3TableIsFreeButton = new System.Windows.Forms.Button();
             this.Button4TableIsFreeButton = new System.Windows.Forms.Button();
             this.Button5TableIsFreeButton = new System.Windows.Forms.Button();
+            this.FullOrderTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // FoodListBox
@@ -282,6 +284,23 @@
             this.Button5TableIsFreeButton.UseVisualStyleBackColor = false;
             this.Button5TableIsFreeButton.Click += new System.EventHandler(this.Button5TableIsFreeButton_Click);
             // 
+            // FullOrderTextBox
+            // 
+            this.FullOrderTextBox.Location = new System.Drawing.Point(640, 255);
+            this.FullOrderTextBox.Multiline = true;
+            this.FullOrderTextBox.Name = "FullOrderTextBox";
+            this.FullOrderTextBox.Size = new System.Drawing.Size(274, 151);
+            this.FullOrderTextBox.TabIndex = 22;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(638, 234);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 20);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Order";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -289,6 +308,8 @@
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImage = global::RestaurantSystemApp.Properties.Resources.background_image;
             this.ClientSize = new System.Drawing.Size(1233, 473);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.FullOrderTextBox);
             this.Controls.Add(this.Button5TableIsFreeButton);
             this.Controls.Add(this.Button4TableIsFreeButton);
             this.Controls.Add(this.Button3TableIsFreeButton);
@@ -342,5 +363,7 @@
         private System.Windows.Forms.Button Button3TableIsFreeButton;
         private System.Windows.Forms.Button Button4TableIsFreeButton;
         private System.Windows.Forms.Button Button5TableIsFreeButton;
+        private System.Windows.Forms.TextBox FullOrderTextBox;
+        private System.Windows.Forms.Label label5;
     }
 }
